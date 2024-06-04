@@ -1,4 +1,4 @@
-site_name: allanbees
+site_name: Allan Barrantes
 theme:
   name: material
   features:
@@ -11,7 +11,7 @@ theme:
     - content.tabs.link
     - content.code.annotation
     - content.code.copy
-  language: es
+  language: en
   palette:
     - scheme: default
       primary: black
@@ -28,6 +28,29 @@ theme:
   font:
     text: Inter
     code: Inter
+plugins:
+  - search:
+      separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - minify:
+      minify_html: true
+
+  - blog:
+      enabled: !ENV CI
+      blog_dir: blog
+      blog_toc: true
+      post_dir: blog/posts
+      post_date_format: yyyy/MM/dd
+      post_url_format: "{date}/{slug}"
+      authors_file: "{blog}/.authors.yml"
+nav:
+  - Home:
+      - Introductions: "index.md"
+      - Blog: "blog/index.md"
+      - Contact: "contact.md"
+  - Blog:
+      - "blog/index.md"
+  - Contact: "contact.md"
+
 extra:
   social:
     - icon: fontawesome/brands/github-alt
